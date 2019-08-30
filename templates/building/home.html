@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head_extra %} 
+<title>Welcome Home</title>
+{% endblock head_extra %}
+
+
+{% block content %}
+
+<style>
+.visit-section img{
+    max-height:250px;
+    width:100%;
+}
+</style>
+
+
+    <section class="site-hero overlay" style="background-image: url({% static 'izu_images/izu_home.jpg' %})">
+      <div class="container">
+        <div class="row site-hero-inner align-items-center">
+          <div class="col-md-7 text-left ml-auto">
+            <h2 class="heading" style="font-size:50px;" data-aos="fade-up">iZSa steel and pipes.We are the number one destination of drillers and Builders.</h1>
+            <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">Discover the quality embedded in our materials.</p>
+            <p data-aos="fade-up" data-aos-delay="100"><a href="{% url 'building:contact' %}" class="btn uppercase btn-primary mr-md-2 mr-0 mb-3 d-sm-inline d-block">Get In Touch</a> <a href="#" 
+          </div>
+        </div>
+        <a href="#next-section" class="smoothscroll scroll-down">Scroll Down</a>
+      </div>
+    </section>
+    <!-- END section -->
+
+
+<!-- Building Materials Section-->
+ <section class="section visit-section" id="next-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="heading" data-aos="fade-up">Popular Building Materials</h2>
+          </div>
+        </div>
+        <div class="row">
+        {% for build in building %}
+          <div class="col-lg-3 col-md-6 visit mb-3" data-aos="fade-up">
+
+            <a href="property-single.html"><img src="{{build.image.url}}" alt="Image placeholder" class="img-fluid rounded"> </a>
+            <h3><a href="property-single.html">N {{build.price}}</a></h3>
+            <div class="reviews-star float-left">
+              {{build.name}}
+            </div>
+
+          </div>
+        {% endfor %}
+         
+
+        </div>
+      </div>
+    </section>
+    <!-- END Building Materials Section -->
+  
+
+<!-- Our Service Quality -->
+<section class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mb-4 mb-lg-0 col-lg-4 text-center">
+            <span class="ion-android-calendar display-3 text-primary"></span>
+            <h3 class="card-title">Deal On Time</h3>
+            <p>We deliver on time that is why our customers can rely on us anytime anyday.</p>
+          </div>
+          <div class="col-md-6 mb-4 mb-lg-0 col-lg-4 text-center">
+            <span class="ion-android-create display-3 text-primary"></span>
+            <h3 class="card-title">Good Reviews</h3>
+            <p>Our custumers always have something good to say about us. They are at the core of our heart when it comes to quality materials.</p>
+          </div>
+          <div class="col-md-6 mb-4 mb-lg-0 col-lg-4 text-center">
+            <span class="ion-android-hangout display-3 text-primary"></span>
+            <h3 class="card-title">24/7 Support</h3>
+            <p>We are available at all times you need our services. Contact us we just so close to you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- END of Service Quality -->
+
+{% endblock content %}

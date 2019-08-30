@@ -1,0 +1,67 @@
+{% load staticfiles %}
+<!--DOCTYPE html -->
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+      <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee:200,300,400|Playfair+Display:400,700" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="{% static 'izu_css/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'izu_css/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'izu_css/owl.carousel.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'izu_css/aos.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'fonts/ionicons/css/ionicons.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'fonts/fontawesome/css/font-awesome.min.css' %}">
+
+    <!-- Theme Style -->
+<link rel="stylesheet" type="text/css" href="{% static 'izu_css/style.css' %}">    
+    
+
+<title>{% block head_title %}Izu Building Material Limited{% endblock head_title %}</title>
+
+
+
+</head>
+<body>
+
+<!-- Header -->
+{% include "header.html" %}
+    <!-- End Header Area -->
+    {% include "messages_display.html" %}
+
+
+            {% block content %}
+
+            
+            
+            {% endblock content %}
+
+
+
+
+<!--Load JavaScript-->
+
+    <script type='text/javascript' src="{% static 'izu_js/jquery-3.2.1.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'izu_js/popper.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'izu_js/bootstrap.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'izu_js/owl.carousel.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'izu_js/jquery.waypoints.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'izu_js/aos.js' %}"></script>
+    <script type='text/javascript' src="{% static 'izu_js/main.js' %}"></script>
+
+
+
+
+
+<!-- Footer -->
+{% include "footer.html" %}
+    <!-- End Footer Area -->              
+
+</body>
+</html>
+
+
+
+
