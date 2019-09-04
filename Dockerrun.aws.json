@@ -15,6 +15,7 @@
         ],
         "essential": false,
         "memory": 128,
+        "links":["smtp"],
         "image": "texplode/izu-app",
         "name": "web"
       },
