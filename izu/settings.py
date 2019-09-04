@@ -122,11 +122,11 @@ USE_TZ = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('POSTGRES_DATABASE','postgres'),
-        'USER': os.environ.get('POSTGRES_USER','postgres'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD','postgres'),
-        'HOST': os.environ.get('POSTGRES_HOST','db'),
-        'PORT': os.environ.get('POSTGRES_PORT','5432'),
+        'NAME': os.environ.get('POSTGRES_DATABASE'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT'),
     }
 }
 
@@ -146,31 +146,31 @@ STATIC_URL = '/static/'
 
 IZU = 'bakaretemitayo712@gmail.com'
 
-if DEBUG:
-    STATIC_URL = '/static/'
+# if DEBUG:
+#     STATIC_URL = '/static/'
 
-    # STATICFILES_DIRS = [ os.path.join(BASE_DIR, "static"),]
-    BUILDING = "building"
-    MEDIA_URL = "/media/"
-    STATIC_ROOT = os.path.join(BASE_DIR, "static")
-    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+#     # STATICFILES_DIRS = [ os.path.join(BASE_DIR, "static"),]
+#     BUILDING = "building"
+#     MEDIA_URL = "/media/"
+#     STATIC_ROOT = os.path.join(BASE_DIR, "static")
+#     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
-else:
+# else:
 
     # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3BotoStorage'
-    BUILDING='building'
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-    AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-        }
-    AWS_LOCATION = 'static'
-    STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    ]
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+BUILDING='building'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_OBJECT_PARAMETERS = {
+'CacheControl': 'max-age=86400',
+    }
+AWS_LOCATION = 'static'
+STATICFILES_DIRS = [
+os.path.join(BASE_DIR, 'static'),
+]
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
