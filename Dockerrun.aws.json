@@ -2,7 +2,7 @@
     "AWSEBDockerrunVersion": 2,
     "containerDefinitions": [
       {
-        "essential": true,
+        "essential": false,
         "image": "postgres:alpine",
         "memory": 128,
         "name": "db"
@@ -11,9 +11,9 @@
         "command": [
           "/bin/sh",
           "-c",
-          "python manage.py migrate && gunicorn izu.wsgi:application --bind 0.0.0.0:8009"
+          "python manage.py migrate && gunicorn izu.wsgi:application --bind 0.0.0.0:8009  && python manage.py collectstatic"
         ],
-        "essential": true,
+        "essential": false,
         "memory": 128,
         "image": "texplode/izu-app",
         "name": "web"
