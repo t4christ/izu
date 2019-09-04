@@ -16,7 +16,7 @@ services:
       - .:/var/www/app/
     depends_on:
       - db
-    env_file: .env
+    # env_file: .env
     networks:
       - db_nw
       - web_app_nw
@@ -43,7 +43,7 @@ services:
     restart: always
     ports:
      - "587:587"
-    env_file: .env
+    # env_file: .env
     networks:
       - smtp_nw
       - web_app_nw
