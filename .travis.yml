@@ -11,27 +11,25 @@ script:
   - docker-compose down
 
 after_success:
-  - docker build -t texplode/esusu_api  ./app
-  - docker build -t texplode/nginx  ./nginx
-  - docker build -t texplode/esusu_smtp  ./docker-smtp
+  - docker build -t texplode/izu-app  .
+  
 
   # Login to Docker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # Take images and push them to dockerhub
 
-  - docker push texplode/esusu_api
-  - docker push texplode/nginx
-  - docker push texplode/esusu_smtp
-# deploy:
-#   provider: elasticbeanstalk
-#   region: xxxxxxxxx
-#   app: xxxxxxxxx
-#   env: xxxxxxxxx
-#   bucket_name: xxxxxxxxxxxxxxxxxx
-#   bucket_path: xxxxxxxxxxxxxxx
-#   on:
-#     branch: master
-#   access_key_id: $AWS_ACCESS_KEY
-#   secret_access_key:
-#     secure: "$AWS_SECRET_KEY"
+  - docker push texplode/izu-app
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: izu-app
+  env: IzuApp-env 
+  bucket_name: izu-bucket
+  bucket_path: izu_bucket
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
