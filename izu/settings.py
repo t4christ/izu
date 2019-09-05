@@ -159,8 +159,9 @@ IZU = 'bakaretemitayo712@gmail.com'
 
 # else:
 
-    # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3BotoStorage'
+
 BUILDING='building'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
