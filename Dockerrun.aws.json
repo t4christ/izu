@@ -22,7 +22,7 @@
       {
         "essential": true,
         "image": "texplode/izu-nginx",
-        "memory": 256,
+        "memory": 128,
         "links": ["web"],
         "name": "nginx",
         "portMappings": [
