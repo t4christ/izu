@@ -9,6 +9,8 @@
       },
       {
         "command": [
+          "tail",
+          "-f",
           "/bin/sh",
           "-c",
           "gunicorn izu.wsgi:application --bind 0.0.0.0:8009"
@@ -22,7 +24,7 @@
       {
         "essential": true,
         "image": "texplode/izu-nginx",
-        "memory": 128,
+        "memory": 256,
         "links": ["web"],
         "name": "nginx",
         "portMappings": [
