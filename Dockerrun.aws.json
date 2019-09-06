@@ -21,7 +21,7 @@
       },
       {
         "essential": true,
-        "image": "texplode/trivia-nginx",
+        "image": "texplode/izu-nginx",
         "memory": 256,
         "links": ["web"],
         "name": "nginx",
@@ -34,7 +34,7 @@
       },
       {
         "essential": false,
-        "image":"texplode/esusu_smtp",
+        "image":"texplode/izu-smtp",
         "name": "smtp",
         "memory": 128,
         "portMappings": [
