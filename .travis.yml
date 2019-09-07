@@ -10,7 +10,7 @@ script:
   - docker-compose down
 
 after_success:
-  - docker build -t texplode/izu-app  .
+  - docker build -t texplode/izu_web_app  .
   
 
   # Login to Docker
@@ -18,7 +18,7 @@ after_success:
 
   # Take images and push them to dockerhub
 
-  - docker push texplode/izu-app
+  - docker push texplode/izu_web_app
 
 deploy:
   provider: elasticbeanstalk
