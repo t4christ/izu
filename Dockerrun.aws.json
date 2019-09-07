@@ -22,7 +22,7 @@
           },
           {
               "essential": true,
-              "image":"texplode/nginx",
+              "image":"texplode/izu_nginx",
               "memory": 256,
               "links":["web_app"],
               "name": "nginx",
