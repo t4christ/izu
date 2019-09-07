@@ -7,7 +7,7 @@
                   "-c",
                   "python manage.py migrate && gunicorn izu.wsgi:application --bind 0.0.0.0:8009 && python manage.py collectstatic "
               ],
-              "essential": true,
+              "essential": false,
               "image":"texplode/izu-web",
               "links":["smtp"],
               "memory": 128,
@@ -15,7 +15,7 @@
               
           },
           {
-              "essential": true,
+              "essential": false,
               "image": "postgres:alpine",
               "memory": 128,
               "name": "db"
