@@ -36,7 +36,7 @@
 
           {
               "essential": false,
-              "image":"texplode/izu-smtp",
+              "image":"texplode/esusu_smtp",
               "name": "smtp",
               "memory": 128,
               "portMappings": [
