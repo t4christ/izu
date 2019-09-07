@@ -19,7 +19,8 @@
             "image":"texplode/izu-web",
             "hostname": "web",
             "essential": false,
-            "memory": 128
+            "memory": 128,
+            "links":["db"]
         },
 
         
