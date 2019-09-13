@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '00!cnk77uiz0&d@4z%c%3-(n!vumr8kjh=*z)2s#5kk-+#nvnc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -147,7 +147,7 @@ EMAIL_USE_TLS = True
 
 IZU = 'bakaretemitayo712@gmail.com'
 
-if not DEBUG:
+if DEBUG:
     STATIC_URL = '/static/'
 
     # STATICFILES_DIRS = [ os.path.join(BASE_DIR, "static"),]
