@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-from . import custom_storages
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -162,8 +162,8 @@ else:
 
     BUILDING='building'
     MEDIAFILES_LOCATION = 'media'
-    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    DEFAULT_FILE_STORAGE = 'izu.custom_storages.MediaStorage'
+    STATICFILES_STORAGE = 'izu.custom_storages.StaticStorage'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
