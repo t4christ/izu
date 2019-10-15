@@ -23,16 +23,32 @@ after_success:
   - docker push texplode/izu-web
   - docker push texplode/izu-nginx
 
+
+
 deploy:
-  provider: elasticbeanstalk
-  region: us-east-2
-  app: izu-app
-  env: IzuApp-env 
-  bucket_name: izu-bucket
-  bucket_path: izu_bucket
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
+  provider: azure_web_apps
+  username: $azure_deployment_user       # If AZURE_WA_USERNAME isn't set
+  password: $azure_deployment_password   # If AZURE_WA_PASSWORD isn't set
+  site: siwp-container.azurewebsites.net      # If AZURE_WA_SITE isn't set
+  slot: siwp-container       # (optional) If AZURE_WA_SLOT isn't set
+  on: master
+  verbose: true
+
+
+
+
+
+
+# deploy:
+#   provider: elasticbeanstalk
+#   region: us-east-2
+#   app: izu-app
+#   env: IzuApp-env 
+#   bucket_name: izu-bucket
+#   bucket_path: izu_bucket
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key:
+#     secure: "$AWS_SECRET_KEY"
 
