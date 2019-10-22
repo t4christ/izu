@@ -11,7 +11,8 @@ services:
       - db_nw
   web_app:
     build: .
-    command: /bin/sh -c "gunicorn izu.wsgi:application --bind 0.0.0.0:8000 && python manage.py migrate"
+    # image: texplode/izu-web
+    command: /bin/sh -c "gunicorn izu.wsgi:application --bind 0.0.0.0:8009"
     volumes:
       - .:/var/www/app/
     depends_on:
@@ -24,6 +25,7 @@ services:
 
   nginx:
     build: ./nginx
+    # image: texplode/izu-nginx
     volumes:
       - ./static:/var/www/app/static
       - ./media:/var/www/app/media
@@ -38,7 +40,8 @@ services:
 
 
   smtp:
-    build:
+    build: 
+    # image: texplode/esusu_smtp
       context: ./docker-smtp
     restart: always
     ports:
